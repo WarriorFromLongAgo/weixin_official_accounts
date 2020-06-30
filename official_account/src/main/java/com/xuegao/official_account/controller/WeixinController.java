@@ -2,10 +2,12 @@ package com.xuegao.official_account.controller;
 
 import com.xuegao.official_account.constant.consist.Constant;
 import com.xuegao.official_account.service.WeixinMessageDispatcher;
+import com.xuegao.official_account.utils.weixinUtil.CheckUtil;
 import com.xuegao.official_account.utils.weixinUtil.MessageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.function.Consumer;
 
@@ -25,13 +28,14 @@ import java.util.function.Consumer;
  * <br/> @author：花名：xuegao
  * <br/> @date：2020/6/30 11:02
  */
-@RestController(value = "/weixin")
+@RestController
+// @RequestMapping(path = )
 public class WeixinController {
     private final Logger log = LoggerFactory.getLogger(getClass());
 
     // 1
     //
-    // @RequestMapping(path = "/verify_wx_token", method = RequestMethod.POST)
+    // @RequestMapping(path = "/verify_wx_token", method = RequestMethod.GET)
     // public void login(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
     //     log.info("=================" + "verify_wx_token" + "==============");
     //     System.out.println("=============1111");
